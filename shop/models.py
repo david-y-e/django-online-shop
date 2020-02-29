@@ -41,3 +41,9 @@ class Product(models.Model):
   class Meta:
     ordering = ['-created']
     index_together = [['id','slug']]
+
+  def __str__(self):
+      return self.name
+
+  def get_absolute_url(self):
+      return reverse('shop:product_detail', args=[self.id, self.slug])

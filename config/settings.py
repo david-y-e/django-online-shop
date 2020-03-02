@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.naver',
     'cart',
     'coupon',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -145,6 +146,9 @@ AWS_LOCATION = 'static'
 
 STATIC_URL = 'https://%s/%s/'%(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
 
@@ -158,3 +162,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 CART_ID = 'cart_in_session'
+
+IAMPORT_KEY = '3453971767278903'
+IAMPORT_SECRET = 'xn9VYGdkaNH5wPQ8y3Tn3YK3s1awmekUBtPA93VkRCqnrgw0kpnoo7rQ9BmvQGqrag2kjXEaA4y2l42F'
